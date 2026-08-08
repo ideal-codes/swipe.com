@@ -1,0 +1,6 @@
+{
+  "name": "Zoom Parallax Gallery",
+  "description": "Interactive scroll-driven zoom parallax image gallery showcase with smooth scrolling and dynamic visual effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
