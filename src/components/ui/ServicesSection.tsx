@@ -215,15 +215,17 @@ export const ServicesSection: React.FC = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#E50914] opacity-10 blur-[150px] pointer-events-none rounded-full" />
 
       {/* Header & Filter Controls */}
-      <div className="text-center max-w-2xl mx-auto mb-10 space-y-3 relative z-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#E50914]/40 bg-[#E50914]/10 text-[11px] font-bold tracking-widest text-[#E50914] uppercase">
+      <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E50914]/40 bg-[#E50914]/10 text-[11px] font-bold tracking-widest text-[#E50914] uppercase">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>OUR SERVICES</span>
+          <span>OUR CAPABILITIES</span>
         </div>
 
- 
+        <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+          Strategic Engineering for Modern Software Teams.
+        </h2>
 
-        <p className="text-sm text-white/70 max-w-lg mx-auto">
+        <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto">
           From custom cloud software to automated AI pipelines, we deliver scalable engineering tailored to your growth.
         </p>
 

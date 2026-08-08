@@ -166,14 +166,25 @@ export function Interactive3DHero({
 }: Interactive3DHeroProps) {
   return (
 
-    
-    <Card className="w-full min-h-[520px] md:h-[600px] lg:h-[660px] p-6 sm:p-10 lg:p-16 group flex flex-col justify-between">
+    <div className="w-full space-y-6 sm:space-y-8">
+      <div className="text-center max-w-3xl mx-auto space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E61E4D]/30 bg-[#E61E4D]/10 text-[#FF2D55] text-xs font-mono">
+          <Sparkles className="w-3.5 h-3.5" />
+          VISION & MISSION
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+          Designing Intelligent Experiences That Scale.
+        </h2>
+        <p className="text-[#A8A8A8] text-base leading-relaxed">
+          We combine spatial interfaces, product clarity, and premium engineering to shape digital systems that feel exceptional.
+        </p>
+      </div>
 
-      
-      {/* Dynamic Cursor Spotlight Radial Glow */}
-      <Spotlight size={spotlightSize} fill={spotlightFill} />
+      <Card className="w-full min-h-[520px] md:h-[600px] lg:h-[660px] p-6 sm:p-10 lg:p-16 group flex flex-col justify-between">
+        {/* Dynamic Cursor Spotlight Radial Glow */}
+        <Spotlight size={spotlightSize} fill={spotlightFill} />
 
-      <div className="flex flex-col md:flex-row h-full items-center gap-6 md:gap-10 relative z-10">
+        <div className="flex flex-col md:flex-row h-full items-center gap-6 md:gap-10 relative z-10">
         {/* Left Column: Glassmorphism Vision Cards */}
         <div className="flex-1 lg:flex-[0.9] relative z-10 flex flex-col justify-center gap-4 sm:gap-6 pr-0 md:pr-2 pb-4 md:pb-0 h-full w-full">
           {/* Glass Box 1 */}
@@ -213,7 +224,8 @@ export function Interactive3DHero({
           <SplineScene scene={sceneUrl} className="w-full h-full" />
         </div>
       </div>
-    </Card>
+      </Card>
+    </div>
   );
 }
 

@@ -433,7 +433,20 @@ export function TeamShowcase() {
   return (
 
     
-    <div className="relative w-full">
+    <div className="relative w-full space-y-6 sm:space-y-8">
+      <div className="text-center max-w-3xl mx-auto space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[#A8A8A8] text-xs font-mono">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E61E4D] animate-pulse" />
+          TEAM VERIFICATION
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+          Meet the People Behind SWIPE.
+        </h2>
+        <p className="text-[#A8A8A8] text-base leading-relaxed">
+          The team combines product thinking, engineering depth, and design precision to build premium software experiences.
+        </p>
+      </div>
+
       <div className="relative bg-gradient-to-b from-white/5 via-white/[0.02] to-transparent border border-white/10 rounded-3xl p-4 sm:p-8 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Ambient Backlight Glow */}
         

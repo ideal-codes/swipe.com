@@ -20,11 +20,13 @@ export default function App() {
 
       <Navbar />
 
-      <ZoomParallaxDemo />
+      <section className="pt-6 sm:pt-10 lg:pt-14">
+        <ZoomParallaxDemo />
+      </section>
 
       
      
-        <section id="vision" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="vision" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-10 sm:pt-14 lg:pt-20">
           <section className="w-full px-8 xl:px-24">
               <Interactive3DHero />
           </section>

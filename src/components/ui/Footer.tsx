@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Github, Twitter, Linkedin, ArrowUpRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { soundFx } from '../../lib/sound';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState<string>('');

@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Calendar, Clock, Send, CheckCircle2, Globe, Building, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { LOCATIONS } from '../../data/testimonialsdata';
-import { LocationItem } from '../types';
+import { LocationItem } from '@/types';
 import { soundFx } from '../../lib/sound';
 
 export const Contact: React.FC = () => {
@@ -68,9 +68,9 @@ export const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E61E4D]/30 bg-[#E61E4D]/10 text-[#FF2D55] text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E61E4D]/30 bg-[#E61E4D]/10 text-[#FF2D55] text-xs font-mono">
             <Mail className="w-3.5 h-3.5" />
-            INITIATE COLLABORATION
+            CONTACT / DISCOVERY
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
             Let's Build Something Incredible.

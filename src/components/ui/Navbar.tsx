@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowUpRight, Sparkles, PhoneCall, RefreshCw } from 'lucide-react';
-import logoImage from '../../../assets/logo/swipe-logo-bgr.png';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  Sparkles,
+  PhoneCall,
+} from "lucide-react";
+
+import logoImage from "../../../assets/logo/swipe-logo-bgr.png";
 
 export interface NavLink {
   name: string;
@@ -17,295 +24,685 @@ export interface NavbarProps {
 }
 
 const DEFAULT_LINKS: NavLink[] = [
-  { name: "About", href: "#vision" },
-  { name: "Services", href: "#services" },
-  { name: "Team", href: "#TeamShowCase" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  {
+    name: "About",
+    href: "#vision",
+  },
+  {
+    name: "Services",
+    href: "#services",
+  },
+  {
+    name: "Team",
+    href: "#TeamShowCase",
+  },
+  {
+    name: "Testimonials",
+    href: "#testimonials",
+  },
+  {
+    name: "Contact",
+    href: "#contact",
+  },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
-  brandName = 'SWIPE',
+  brandName = "SWIPE",
   navLinks = DEFAULT_LINKS,
   onBookCallClick,
   onReplayLoading,
-  className = '',
+  className = "",
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(navLinks[0]?.href.replace('#', '') || 'about');
+  const [activeSection, setActiveSection] = useState("vision");
   const [isInitializing, setIsInitializing] = useState(true);
   const [loadKey, setLoadKey] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+  const menuRef = useRef<HTMLDivElement>(null);
 
-      // Detect active section dynamically
-      for (const link of navLinks) {
-        const sectionId = link.href.replace('#', '');
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const handleOutside = (e: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target as Node)
+      ) {
+        setMobileMenuOpen(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (mobileMenuOpen) {
+      document.addEventListener("mousedown", handleOutside);
+    }
+
+    return () =>
+      document.removeEventListener(
+        "mousedown",
+        handleOutside
+      );
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.45,
+      }
+    );
+
+    navLinks.forEach((link) => {
+      const section = document.getElementById(
+        link.href.replace("#", "")
+      );
+
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, [navLinks]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 25);
+    };
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () =>
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsInitializing(false);
-    }, 1800);
+    }, 1600);
+
     return () => clearTimeout(timer);
   }, [loadKey]);
 
   const handleReplay = () => {
     setIsInitializing(true);
     setLoadKey((prev) => prev + 1);
-    if (onReplayLoading) {
-      onReplayLoading();
-    }
+
+    onReplayLoading?.();
   };
 
   const handleBookCall = () => {
     if (onBookCallClick) {
       onBookCallClick();
-    } else {
-      const contactEl = document.getElementById('contact');
-      if (contactEl) {
-        contactEl.scrollIntoView({ behavior: 'smooth' });
-      }
+      return;
     }
+
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
+
     setMobileMenuOpen(false);
-    const targetId = href.replace('#', '');
-    setActiveSection(targetId);
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+
+    const id = href.replace("#", "");
+
+    setActiveSection(id);
+
+    document
+      .getElementById(id)
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
-  // Motion Variants
   const headerVariants = {
-    hidden: { opacity: 0, y: -30, filter: 'blur(16px)', scale: 0.98 },
+    hidden: {
+      opacity: 0,
+      y: -25,
+      filter: "blur(16px)",
+    },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
-      scale: 1,
+      filter: "blur(0px)",
       transition: {
-        duration: 0.9,
-        ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.1,
-        delayChildren: 0.15,
+        duration: 0.8,
+        staggerChildren: 0.08,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: -15, scale: 0.92, filter: 'blur(8px)' },
+    hidden: {
+      opacity: 0,
+      y: -15,
+    },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.7,
-        ease: [0.16, 1, 0.3, 1],
+        duration: 0.55,
       },
     },
   };
 
-  return (
-    <motion.header
-      key={loadKey}
-      initial="hidden"
-      animate="visible"
-      variants={headerVariants}
-      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 pointer-events-none ${className}`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between relative">
-        
-        {/* LOGO (LEFT) */}
-        <motion.div variants={itemVariants} className="pointer-events-auto">
-          <a
-            href={navLinks[0]?.href || '#'}
-            onClick={(e) => handleNavClick(e, navLinks[0]?.href || '#')}
-            className="group relative flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-[#E61E4D]/50 transition-colors duration-300 shadow-lg overflow-hidden"
-          >
-            {/* Ambient inner glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#E61E4D]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+return (
+  <motion.header
+    key={loadKey}
+    initial="hidden"
+    animate="visible"
+    variants={headerVariants}
+    className={`fixed inset-x-0 top-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8 pt-[max(env(safe-area-inset-top),1rem)] ${className}`}
+  >
+    <div className="mx-auto flex max-w-7xl items-center justify-between">
 
-            {/* Logo Emblem */}
-            <div className="relative w-8 h-8 flex items-center justify-center shrink-0 overflow-hidden rounded-full bg-white/5">
-              <img
-                src={logoImage}
-                alt={`${brandName} logo`}
-                className="w-full h-full object-contain"
-                draggable={false}
-              />
-            </div>
+      {/* ===================== LOGO ===================== */}
 
-            {/* Brand Text */}
-            <span className="font-extrabold tracking-[0.16em] sm:tracking-[0.2em] text-white text-sm sm:text-base">
-              {brandName.length > 2 ? (
-                <>
-                  {brandName.slice(0, 2)}
-                  <span className="text-[#E61E4D]">{brandName.slice(2, 3)}</span>
-                  {brandName.slice(3)}
-                </>
-              ) : (
-                brandName
-              )}
-            </span>
-          </a>
-        </motion.div>
-
-        {/* CENTER LINKS (DESKTOP) */}
-        <motion.nav
-          variants={itemVariants}
-          className={`hidden lg:flex items-center gap-1.5 px-4 py-2 rounded-full pointer-events-auto relative overflow-hidden transition-all duration-500 border border-white/10 bg-[#080808]/80 backdrop-blur-2xl shadow-[0_10px_35px_rgba(0,0,0,0.6)] ${
-            scrolled ? 'bg-[#080808]/90 border-white/15' : ''
-          }`}
+      <motion.div
+        variants={itemVariants}
+        className="pointer-events-auto shrink-0"
+      >
+        <a
+          href={navLinks[0]?.href}
+          onClick={(e) =>
+            handleNavClick(
+              e,
+              navLinks[0]?.href ?? "#vision"
+            )
+          }
+          className="
+          group
+          relative
+          flex
+          items-center
+          gap-3
+          rounded-full
+          border
+          border-white/10
+          bg-black/45
+          backdrop-blur-3xl
+          px-3
+          sm:px-4
+          py-2.5
+          shadow-[0_15px_40px_rgba(0,0,0,.45)]
+          overflow-hidden
+        "
         >
-          {/* System Initialization Shimmer Beam */}
-          <AnimatePresence>
-            {isInitializing && (
-              <motion.div
-                initial={{ x: '-100%', opacity: 0 }}
-                animate={{ x: '200%', opacity: [0, 0.8, 0] }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.6, ease: 'easeInOut' }}
-                className="absolute inset-y-0 w-32 bg-gradient-to-r from-transparent via-[#E61E4D]/40 to-transparent pointer-events-none blur-sm"
-              />
-            )}
-          </AnimatePresence>
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-[#E61E4D]/20 via-transparent to-transparent" />
 
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.replace('#', '');
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative px-4 py-1.5 text-xs font-medium tracking-wide transition-colors duration-300 rounded-full ${
-                  isActive
-                    ? 'text-white font-semibold'
-                    : 'text-[#A8A8A8] hover:text-white'
-                }`}
-              >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNavIndicator"
-                    className="absolute inset-0 bg-white/10 border border-white/20 rounded-full -z-10 shadow-[0_0_15px_rgba(230,30,77,0.25)]"
-                    transition={{ type: 'spring', stiffness: 350, damping: 28, mass: 0.8 }}
-                  />
-                )}
-                <span>{link.name}</span>
-              </a>
-            );
-          })}
-        </motion.nav>
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/5 overflow-hidden">
+            <img
+              src={logoImage}
+              draggable={false}
+              alt={brandName}
+              className="w-full h-full object-contain"
+            />
+          </div>
 
-        {/* RIGHT ACTION BUTTON (DESKTOP) */}
-        <motion.div variants={itemVariants} className="hidden md:flex items-center gap-3 pointer-events-auto">
+          <span className="font-black tracking-[0.22em] text-white text-sm sm:text-base">
+            {brandName.slice(0,2)}
+            <span className="text-[#E61E4D]">
+              {brandName.slice(2,3)}
+            </span>
+            {brandName.slice(3)}
+          </span>
+        </a>
+      </motion.div>
 
+      {/* ===================== DESKTOP NAV ===================== */}
 
-          <button
-            onClick={handleBookCall}
-            className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-[#E61E4D] to-[#B01436] hover:from-[#FF2D55] hover:to-[#C4163D] shadow-[0_0_20px_rgba(230,30,77,0.3)] hover:shadow-[0_0_30px_rgba(230,30,77,0.5)] transition-all duration-300 cursor-pointer"
-          >
-            <PhoneCall className="w-3.5 h-3.5 text-white group-hover:scale-110 transition-transform duration-300" />
-            <span>Book a Call</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-white/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-          </button>
-        </motion.div>
+      <motion.nav
+        variants={itemVariants}
+        className={`
+        hidden
+        xl:flex
+        items-center
+        gap-1
+        rounded-full
+        px-3
+        py-2
+        pointer-events-auto
+        border
+        transition-all
+        duration-500
+        relative
+        overflow-hidden
+        backdrop-blur-3xl
+        bg-black/55
+        shadow-[0_15px_40px_rgba(0,0,0,.45)]
+        ${
+          scrolled
+            ? "border-white/15"
+            : "border-white/8"
+        }
+      `}
+      >
+        <AnimatePresence>
+          {isInitializing && (
+            <motion.div
+              initial={{
+                x: "-120%",
+                opacity: 0,
+              }}
+              animate={{
+                x: "220%",
+                opacity: [0,.7,0],
+              }}
+              exit={{
+                opacity:0,
+              }}
+              transition={{
+                duration:1.6,
+              }}
+              className="absolute inset-y-0 w-40 bg-gradient-to-r from-transparent via-[#E61E4D]/30 to-transparent blur-lg"
+            />
+          )}
+        </AnimatePresence>
 
-        {/* MOBILE MENU TOGGLE */}
-        <motion.div variants={itemVariants} className="lg:hidden pointer-events-auto flex items-center gap-2">
-          <button
-            onClick={handleBookCall}
-            className="md:hidden px-3 py-1.5 rounded-full text-[11px] font-semibold text-white uppercase tracking-wider bg-gradient-to-r from-[#E61E4D] to-[#B01436]"
-          >
-            Call
-          </button>
+        {navLinks.map((link)=>{
 
-          <button
-            onClick={handleReplay}
-            title="Replay Loading"
-            className="p-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl text-[#A8A8A8]"
-          >
-            <Sparkles className="w-4 h-4 text-[#E61E4D]" />
-          </button>
+          const active =
+            activeSection ===
+            link.href.replace("#","");
 
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-xl text-white"
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5 text-[#E61E4D]" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </motion.div>
-      </div>
+          return(
 
-      {/* MOBILE MENU OVERLAY */}
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e)=>
+                handleNavClick(e,link.href)
+              }
+              className={`
+              relative
+              px-5
+              py-2
+              rounded-full
+              text-sm
+              font-medium
+              transition-all
+              duration-300
+              ${
+                active
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+              }
+            `}
+            >
+
+              {active && (
+
+                <motion.div
+                  layoutId="activeNav"
+                  transition={{
+                    type:"spring",
+                    stiffness:350,
+                    damping:30,
+                  }}
+                  className="
+                  absolute
+                  inset-0
+                  rounded-full
+                  bg-white/8
+                  border
+                  border-white/10
+                  shadow-[0_0_25px_rgba(230,30,77,.25)]
+                  -z-10
+                "
+                />
+
+              )}
+
+              {link.name}
+
+            </a>
+
+          )
+
+        })}
+
+      </motion.nav>
+
+      {/* ===================== RIGHT SIDE ===================== */}
+
+      <motion.div
+        variants={itemVariants}
+        className="hidden lg:flex items-center gap-3 pointer-events-auto"
+      >
+        <button
+          onClick={handleReplay}
+          className="
+          group
+          h-11
+          w-11
+          rounded-full
+          border
+          border-white/10
+          bg-black/45
+          backdrop-blur-3xl
+          flex
+          items-center
+          justify-center
+          hover:border-[#E61E4D]/40
+          transition
+        "
+        >
+          <Sparkles className="w-4 h-4 text-[#E61E4D] group-hover:rotate-180 transition duration-700" />
+        </button>
+
+        <button
+          onClick={handleBookCall}
+          className="
+          group
+          inline-flex
+          items-center
+          gap-2
+          rounded-full
+          bg-gradient-to-r
+          from-[#E61E4D]
+          to-[#B11436]
+          px-6
+          py-3
+          text-xs
+          uppercase
+          tracking-[0.18em]
+          font-semibold
+          text-white
+          shadow-[0_0_35px_rgba(230,30,77,.35)]
+          hover:scale-[1.03]
+          transition
+        "
+        >
+          <PhoneCall className="w-4 h-4"/>
+
+          Book Call
+
+          <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition"/>
+        </button>
+      </motion.div>
+
+      {/* ===================== MOBILE ACTIONS ===================== */}
+
+      <motion.div
+        variants={itemVariants}
+        className="xl:hidden pointer-events-auto"
+      >
+        <button
+          onClick={() =>
+            setMobileMenuOpen(
+              !mobileMenuOpen
+            )
+          }
+          className="
+          h-11
+          w-11
+          rounded-full
+          border
+          border-white/10
+          bg-black/45
+          backdrop-blur-3xl
+          flex
+          items-center
+          justify-center
+        "
+        >
+          {mobileMenuOpen
+            ? <X className="w-5 h-5 text-[#E61E4D]" />
+            : <Menu className="w-5 h-5 text-white" />}
+        </button>
+      </motion.div>
+
+    </div>
+
+      {/* ===================== MOBILE MENU ===================== */}
+
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, y: -10, scale: 0.95, filter: 'blur(10px)' }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden pointer-events-auto mt-3 mx-4 sm:mx-auto max-w-lg rounded-2xl bg-[#080808]/95 backdrop-blur-2xl border border-white/10 p-6 shadow-2xl overflow-hidden"
-          >
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="flex items-center justify-between py-2.5 px-4 rounded-xl hover:bg-white/5 text-sm font-medium text-[#F5F5F5] hover:text-[#E61E4D] transition-colors"
-                >
-                  <span>{link.name}</span>
-                  <ArrowUpRight className="w-4 h-4 text-white/40" />
-                </a>
-              ))}
+          <>
+            {/* Background Overlay */}
 
-              <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    handleBookCall();
-                  }}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#E61E4D] to-[#B01436] font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 text-white shadow-lg"
-                >
-                  <PhoneCall className="w-4 h-4 text-white" />
-                  <span>Book a Call</span>
-                </button>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: .25 }}
+              className="fixed inset-0 bg-black/70 backdrop-blur-md z-40"
+            />
+
+            {/* Menu */}
+
+            <motion.div
+              ref={menuRef}
+              initial={{
+                opacity: 0,
+                y: -30,
+                scale: .96
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1
+              }}
+              exit={{
+                opacity: 0,
+                y: -30,
+                scale: .96
+              }}
+              transition={{
+                duration: .35,
+                ease: [0.16,1,0.3,1]
+              }}
+              className="
+              fixed
+              left-4
+              right-4
+              top-24
+              z-50
+              rounded-3xl
+              border
+              border-white/10
+              bg-black/60
+              backdrop-blur-3xl
+              shadow-[0_20px_80px_rgba(0,0,0,.55)]
+              overflow-hidden
+            "
+            >
+              {/* Top */}
+
+              <div className="px-7 pt-7 pb-4">
+
+                <div className="text-xs uppercase tracking-[0.35em] text-neutral-500">
+                  Navigation
+                </div>
+
               </div>
-            </div>
-          </motion.div>
+
+              {/* Links */}
+
+              <div className="px-4 pb-4">
+
+                {navLinks.map((link,index)=>{
+
+                  const active =
+                    activeSection ===
+                    link.href.replace("#","");
+
+                  return(
+
+                    <motion.a
+
+                      key={link.name}
+
+                      href={link.href}
+
+                      initial={{
+                        opacity:0,
+                        x:-20
+                      }}
+
+                      animate={{
+                        opacity:1,
+                        x:0
+                      }}
+
+                      transition={{
+                        delay:index*.06
+                      }}
+
+                      onClick={(e)=>
+                        handleNavClick(e,link.href)
+                      }
+
+                      className={`
+                      group
+                      flex
+                      items-center
+                      justify-between
+                      rounded-2xl
+                      px-5
+                      py-4
+                      mb-2
+                      transition-all
+                      duration-300
+
+                      ${
+                        active
+                        ? "bg-white/10 text-white"
+                        : "hover:bg-white/5 text-neutral-300"
+                      }
+                    `}
+                    >
+
+                      <span className="text-base font-medium">
+                        {link.name}
+                      </span>
+
+                      <ArrowUpRight
+                        className="
+                        w-5
+                        h-5
+                        text-neutral-500
+                        group-hover:text-[#E61E4D]
+                        group-hover:translate-x-1
+                        group-hover:-translate-y-1
+                        transition
+                      "
+                      />
+
+                    </motion.a>
+
+                  )
+
+                })}
+
+              </div>
+
+              {/* Divider */}
+
+              <div className="mx-6 h-px bg-white/10"/>
+
+              {/* Bottom */}
+
+              <div className="p-6 space-y-3">
+
+                <button
+
+                  onClick={()=>{
+                    setMobileMenuOpen(false)
+                    handleBookCall()
+                  }}
+
+                  className="
+                  w-full
+                  rounded-2xl
+                  py-4
+                  bg-gradient-to-r
+                  from-[#E61E4D]
+                  to-[#B11436]
+                  text-white
+                  font-semibold
+                  uppercase
+                  tracking-[0.15em]
+                  flex
+                  items-center
+                  justify-center
+                  gap-3
+                  shadow-[0_0_35px_rgba(230,30,77,.35)]
+                  hover:scale-[1.02]
+                  transition
+                "
+                >
+
+                  <PhoneCall className="w-5 h-5"/>
+
+                  Book Discovery Call
+
+                </button>
+
+                <button
+
+                  onClick={()=>{
+                    handleReplay()
+                    setMobileMenuOpen(false)
+                  }}
+
+                  className="
+                  w-full
+                  rounded-2xl
+                  py-4
+                  border
+                  border-white/10
+                  bg-white/5
+                  text-neutral-300
+                  hover:text-white
+                  hover:border-[#E61E4D]/40
+                  flex
+                  items-center
+                  justify-center
+                  gap-3
+                  transition
+                "
+                >
+
+                  <Sparkles className="w-5 h-5 text-[#E61E4D]"/>
+
+                  Replay Intro Animation
+
+                </button>
+
+              </div>
+
+            </motion.div>
+
+          </>
         )}
       </AnimatePresence>
+
     </motion.header>
   );
 };
 
 export default Navbar;
-
-
