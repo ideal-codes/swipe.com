@@ -392,26 +392,7 @@ return (
         variants={itemVariants}
         className="hidden lg:flex items-center gap-3 pointer-events-auto"
       >
-        <button
-          onClick={handleReplay}
-          className="
-          group
-          h-11
-          w-11
-          rounded-full
-          border
-          border-white/10
-          bg-black/45
-          backdrop-blur-3xl
-          flex
-          items-center
-          justify-center
-          hover:border-[#E61E4D]/40
-          transition
-        "
-        >
-          <Sparkles className="w-4 h-4 text-[#E61E4D] group-hover:rotate-180 transition duration-700" />
-        </button>
+
 
         <button
           onClick={handleBookCall}
