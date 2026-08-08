@@ -14,8 +14,6 @@ import { ServicesSection } from '@/components/ui/ServicesSection';
 export default function App() {
   return (
     <div>
-
-
       <BackgroundEffects />
 
       <Navbar />
@@ -24,13 +22,11 @@ export default function App() {
         <ZoomParallaxDemo />
       </section>
 
-      
-     
       <section id="vision" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-10 sm:pt-14 lg:pt-20">
-          <section className="w-full px-8 xl:px-24">
-              <Interactive3DHero />
-          </section>
-         </section>
+        <section className="w-full px-8 xl:px-24">
+            <Interactive3DHero />
+        </section>
+       </section>
 
     <section id="services" className="min-h-screen bg-[#030303] text-white selection:bg-[#E50914] selection:text-white">
       <section>
@@ -43,19 +39,17 @@ export default function App() {
         <TechStackSection />
       </section>
 
-      
-      
+
+
       <section id="TeamShowCase" className="relative w-full min-h-screen  flex items-center justify-center overflow-hidden">
         <div className="w-full px-8 xl:px-24" >
           <TeamShowcase />
         </div>
       </section>
- 
+
        <Testimonials />
        <Contact />
        <Footer />
-
-
     </div>
   );
 }
