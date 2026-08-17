@@ -24,6 +24,10 @@ export interface NavbarProps {
 }
 
 const DEFAULT_LINKS: NavLink[] = [
+    {
+    name: "Home",
+    href: "#hero",
+  },
   {
     name: "About",
     href: "#vision",
@@ -230,7 +234,7 @@ return (
           onClick={(e) =>
             handleNavClick(
               e,
-              navLinks[0]?.href ?? "#vision"
+              navLinks[0]?.href ?? "#hero"
             )
           }
           className="
@@ -643,37 +647,7 @@ return (
 
                 </button>
 
-                <button
-
-                  onClick={()=>{
-                    handleReplay()
-                    setMobileMenuOpen(false)
-                  }}
-
-                  className="
-                  w-full
-                  rounded-2xl
-                  py-4
-                  border
-                  border-white/10
-                  bg-white/5
-                  text-neutral-300
-                  hover:text-white
-                  hover:border-[#E61E4D]/40
-                  flex
-                  items-center
-                  justify-center
-                  gap-3
-                  transition
-                "
-                >
-
-                  <Sparkles className="w-5 h-5 text-[#E61E4D]"/>
-
-                  Replay Intro Animation
-
-                </button>
-
+                
               </div>
 
             </motion.div>

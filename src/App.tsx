@@ -18,7 +18,7 @@ export default function App() {
 
       <Navbar />
 
-      <section className="pt-6 sm:pt-10 lg:pt-14">
+      <section id="hero" className="pt-6 sm:pt-10 lg:pt-14">
         <ZoomParallaxDemo />
       </section>
 

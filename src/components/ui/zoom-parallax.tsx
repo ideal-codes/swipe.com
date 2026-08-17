@@ -130,7 +130,7 @@ export default function DefaultDemo({ images = DEFAULT_IMAGES }: { images?: Imag
         <div id="scroll-target" className="relative z-10 space-y-4 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full bg-red-500/10 px-3.5 py-1 text-xs font-mono tracking-wider text-red-400 border border-red-500/20 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-            SOFTWARE â€¢ AI â€¢ SECURITY
+            SOFTWARE ● AI ● SECURITY
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white">
 						         We Build Software <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-100 to-slate-400">That Businesses Trust.</span>
