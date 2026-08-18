@@ -95,33 +95,55 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, [mobileMenuOpen]);
 
   useEffect(() => {
-    const sections = navLinks
-      .map((link) => document.getElementById(link.href.replace("#", "")))
-      .filter((section): section is HTMLElement => Boolean(section));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible[0]) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      {
-        threshold: [0.2, 0.35, 0.5, 0.65],
-        rootMargin: "-20% 0px -45% 0px",
+    const getActiveSection = () => {
+      if (window.scrollY < 120) {
+        return "hero";
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      const viewportCenter = window.innerHeight * 0.38;
+      let bestId = "hero";
+      let bestDistance = Number.POSITIVE_INFINITY;
 
-    if (window.scrollY < 80) {
-      setActiveSection("hero");
-    }
+      navLinks.forEach((link) => {
+        const section = document.getElementById(link.href.replace("#", ""));
 
-    return () => observer.disconnect();
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestId = section.id;
+        }
+      });
+
+      return bestId;
+    };
+
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      ticking = false;
+      const nextSection = getActiveSection();
+      setActiveSection((current) => (current === nextSection ? current : nextSection));
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [navLinks]);
 
   useEffect(() => {
