@@ -100,10 +100,10 @@ export function TechStackSection({
                   className="w-3.5 h-3.5 rounded-full shadow-[0_0_12px_currentColor]"
                   style={{ backgroundColor: item.color, color: item.color }}
                 />
-                <span className="font-bold text-base sm:text-lg text-white group-hover:text-[#ff0050] transition-colors">
+                <span className="fw-bold text-base sm:text-lg text-white group-hover:text-[#ff0050] transition-colors">
                   {item.name}
                 </span>
-                <span className="text-[10px] font-mono text-slate-400 px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 font-semibold">
+                <span className="text-[10px] fw-medium text-slate-400 px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10">
                   {item.tag}
                 </span>
               </div>
@@ -127,10 +127,10 @@ export function TechStackSection({
                   className="w-3.5 h-3.5 rounded-full shadow-[0_0_12px_currentColor]"
                   style={{ backgroundColor: item.color, color: item.color }}
                 />
-                <span className="font-bold text-base sm:text-lg text-white group-hover:text-[#b100ff] transition-colors">
+                <span className="fw-bold text-base sm:text-lg text-white group-hover:text-[#b100ff] transition-colors">
                   {item.name}
                 </span>
-                <span className="text-[10px] font-mono text-slate-400 px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 font-semibold">
+                <span className="text-[10px] fw-medium text-slate-400 px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10">
                   {item.tag}
                 </span>
               </div>

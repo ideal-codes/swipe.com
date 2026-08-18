@@ -26,7 +26,7 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
         <div className="w-full h-full flex items-center justify-center bg-zinc-900/50 rounded-2xl border border-white/5">
           <div className="flex flex-col items-center gap-2">
             <div className="w-8 h-8 border-2 border-white/80 border-t-transparent rounded-full animate-spin" />
-            <span className="text-xs text-zinc-300 font-mono">Loading 3D Model...</span>
+            <span className="text-xs text-zinc-300 fw-regular">Loading 3D Model...</span>
           </div>
         </div>
       }
@@ -168,11 +168,11 @@ export function Interactive3DHero({
 
     <div className="w-full space-y-6 sm:space-y-8">
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E61E4D]/30 bg-[#E61E4D]/10 text-[#FF2D55] text-xs font-mono">
+        {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E61E4D]/30 bg-[#E61E4D]/10 text-[#FF2D55] text-xs fw-medium">
           <Sparkles className="w-3.5 h-3.5" />
           VISION & MISSION
-        </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+        </div> */}
+        <h2 className="text-3xl sm:text-5xl fw-semibold text-white tracking-tight">
           Designing Intelligent Experiences That Scale.
         </h2>
         <p className="text-[#A8A8A8] text-base leading-relaxed">
@@ -193,7 +193,7 @@ export function Interactive3DHero({
               <div className="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-white">
                 <Eye className="w-5 h-5 text-red-300" />
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              <h2 className="text-xl sm:text-2xl fw-bold tracking-tight text-white">
                 {title1}
               </h2>
             </div>
@@ -209,7 +209,7 @@ export function Interactive3DHero({
  border border-red-500/20 text-white">
                 <Sparkles className="w-5 h-5 text-zinc-100" />
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              <h2 className="text-xl sm:text-2xl fw-bold tracking-tight text-white">
                 {title2}
               </h2>
             </div>

@@ -28,20 +28,20 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-2.5">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#E61E4D] to-[#FF2D55] flex items-center justify-center p-0.5 shadow-lg shadow-[#E61E4D]/20">
                 <div className="w-full h-full bg-[#080808] rounded-[10px] flex items-center justify-center">
-                  <span className="font-extrabold text-xs text-[#E61E4D]">S</span>
+                  <span className="fw-bold text-xs text-[#E61E4D]">S</span>
                 </div>
               </div>
-              <span className="text-xl font-extrabold font-display tracking-tight text-white">
+              <span className="text-xl fw-bold fw-font tracking-tight text-white">
                 SWIPE<span className="text-[#E61E4D]">.</span>
               </span>
             </div>
 
-            <p className="text-xs font-sans text-[#A8A8A8] max-w-sm leading-relaxed">
+            <p className="text-xs fw-regular text-[#A8A8A8] max-w-sm leading-relaxed">
               SWIPE is an award-winning software engineering and digital solutions company crafting future-grade platforms, neural AI workflows, and zero-trust cloud architectures.
             </p>
 
             {/* Live Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs fw-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>All Global Systems Operational • 99.999%</span>
             </div>
@@ -49,8 +49,8 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono text-white font-bold uppercase tracking-wider">Navigation</h4>
-            <ul className="space-y-2 text-xs font-mono text-[#A8A8A8]">
+            <h4 className="text-xs fw-semibold text-white uppercase tracking-[0.18em]">Navigation</h4>
+            <ul className="space-y-2 text-xs fw-regular text-[#A8A8A8]">
               {['Testimonials', 'Contact'].map((item) => (
                 <li key={item}>
                   <a
@@ -67,8 +67,8 @@ export const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-mono text-white font-bold uppercase tracking-wider">Engineering Dispatch</h4>
-            <p className="text-xs text-[#A8A8A8] leading-relaxed">
+            <h4 className="text-xs fw-semibold text-white uppercase tracking-[0.18em]">Engineering Dispatch</h4>
+            <p className="text-xs fw-regular text-[#A8A8A8] leading-relaxed">
               Subscribe to our monthly architectural research & deep-tech dispatch.
             </p>
 
@@ -80,17 +80,17 @@ export const Footer: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="px-3.5 py-2.5 rounded-xl bg-[#171717] border border-white/10 text-xs font-mono text-white focus:border-[#E61E4D] focus:outline-none w-full"
+                  className="px-3.5 py-2.5 rounded-xl bg-[#171717] border border-white/10 text-xs fw-regular text-white focus:border-[#E61E4D] focus:outline-none w-full"
                 />
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#E61E4D] hover:bg-[#FF2D55] text-white text-xs font-mono font-bold transition-colors shrink-0"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#E61E4D] hover:bg-[#FF2D55] text-white text-xs fw-semibold transition-colors shrink-0"
                 >
                   Join
                 </button>
               </form>
             ) : (
-              <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400">
+              <div className="flex items-center space-x-2 text-xs fw-medium text-emerald-400">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Subscribed to Engineering Dispatch</span>
               </div>
@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal & Social Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A8A8A8]">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs fw-regular text-[#A8A8A8]">
           <div>
             © {new Date().getFullYear()} SWIPE Digital Solutions Inc. All rights reserved.
           </div>

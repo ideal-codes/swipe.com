@@ -13,7 +13,7 @@ import { ServicesSection } from '@/components/ui/ServicesSection';
 
 export default function App() {
   return (
-    <div>
+    <div className="fw-font bg-[#f7f5f1] text-zinc-900">
       <BackgroundEffects />
 
       <Navbar />

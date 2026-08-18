@@ -266,7 +266,7 @@ return (
             />
           </div>
 
-          <span className="font-black tracking-[0.22em] text-white text-sm sm:text-base">
+          <span className="fw-black tracking-[0.18em] text-white text-sm sm:text-base">
             {brandName.slice(0,2)}
             <span className="text-[#E61E4D]">
               {brandName.slice(2,3)}
@@ -346,7 +346,7 @@ return (
               py-2
               rounded-full
               text-sm
-              font-medium
+              fw-medium
               transition-all
               duration-300
               ${
@@ -413,8 +413,8 @@ return (
           py-3
           text-xs
           uppercase
-          tracking-[0.18em]
-          font-semibold
+          tracking-[0.16em]
+          fw-semibold
           text-white
           shadow-[0_0_35px_rgba(230,30,77,.35)]
           hover:scale-[1.03]
@@ -581,7 +581,7 @@ return (
                     `}
                     >
 
-                      <span className="text-base font-medium">
+                      <span className="text-base fw-medium">
                         {link.name}
                       </span>
 
@@ -628,7 +628,7 @@ return (
                   from-[#E61E4D]
                   to-[#B11436]
                   text-white
-                  font-semibold
+                  fw-semibold
                   uppercase
                   tracking-[0.15em]
                   flex

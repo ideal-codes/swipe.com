@@ -366,11 +366,11 @@ export function CoverflowCarousel({
           key={selected}
           className="mt-6 flex flex-col items-center px-4 duration-300 animate-in fade-in"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-display italic text-white tracking-wide text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl fw-light italic text-white tracking-wide text-center">
             {active.title}
           </h2>
           {active.subtitle && (
-            <p className="mt-1 text-xs sm:text-sm font-medium text-[#E61E4D] tracking-[0.2em] uppercase text-center">
+            <p className="mt-1 text-xs sm:text-sm fw-medium text-[#E61E4D] tracking-[0.2em] uppercase text-center">
               {active.subtitle}
             </p>
           )}
@@ -381,7 +381,7 @@ export function CoverflowCarousel({
                   <span className="text-[10px] uppercase tracking-widest text-white/40 mb-0.5">
                     {row.label}
                   </span>
-                  <span className="text-xs sm:text-sm font-semibold text-white">
+                  <span className="text-xs sm:text-sm fw-semibold text-white">
                     {row.value}
                   </span>
                 </div>
@@ -435,11 +435,11 @@ export function TeamShowcase() {
     
     <div className="relative w-full space-y-6 sm:space-y-8">
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[#A8A8A8] text-xs font-mono">
+        {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[#A8A8A8] text-xs fw-medium">
           <span className="w-1.5 h-1.5 rounded-full bg-[#E61E4D] animate-pulse" />
           TEAM VERIFICATION
-        </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+        </div> */}
+        <h2 className="text-3xl sm:text-5xl fw-semibold text-white tracking-tight">
           Meet the People Behind SWIPE.
         </h2>
         <p className="text-[#A8A8A8] text-base leading-relaxed">

@@ -112,14 +112,14 @@ export default function DefaultDemo({ images = DEFAULT_IMAGES }: { images?: Imag
           )}
         />
         <div id="scroll-target" className="relative z-10 space-y-4 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full bg-red-500/10 px-3.5 py-1 text-xs font-mono tracking-wider text-red-400 border border-red-500/20 uppercase">
+          {/* <div className="inline-flex items-center gap-2 rounded-full bg-red-500/10 px-3.5 py-1 text-xs fw-medium tracking-[0.2em] text-red-400 border border-red-500/20 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
             SOFTWARE ● AI ● SECURITY
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white">
+          </div> */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl fw-light tracking-tight text-white">
 						         We Build Software <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-100 to-slate-400">That Businesses Trust.</span>
 					</h1>
-          <p className="max-w-lg mx-auto text-sm text-slate-400 leading-relaxed font-sans">
+          <p className="max-w-lg mx-auto text-sm fw-regular text-slate-400 leading-relaxed">
 						  Enterprise software, websites and apps
   built with performance and security first.
 					</p>

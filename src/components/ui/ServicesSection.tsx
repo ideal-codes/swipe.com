@@ -132,56 +132,56 @@ const CardPreview: React.FC<{ id: string }> = ({ id }) => {
   switch (id) {
     case 'custom-software':
       return (
-        <div className="p-3 bg-black/60 rounded-xl border border-white/10 font-mono text-[11px] leading-relaxed text-white/80 space-y-1.5">
+        <div className="p-3 bg-black/60 rounded-xl border border-white/10 fw-regular text-[11px] leading-relaxed text-white/80 space-y-1.5">
           <div className="flex items-center justify-between pb-1 border-b border-white/10 text-[10px] text-white/40">
             <span className="flex items-center gap-1.5"><Terminal className="w-3 h-3 text-[#E50914]" /> deploy.ts</span>
-            <span className="text-emerald-400 font-semibold">11.4ms SLA</span>
+            <span className="text-emerald-400 fw-semibold">11.4ms SLA</span>
           </div>
-          <div className="text-rose-400">export async function <span className="text-white font-semibold">deployCluster</span>() &#123;</div>
+          <div className="text-rose-400">export async function <span className="text-white fw-semibold">deployCluster</span>() &#123;</div>
           <div className="pl-3 text-amber-300/90">await SwipeCloud.provision(&#123; region: <span className="text-emerald-300">'us-east-1'</span>, autoScale: true &#125;);</div>
           <div className="text-rose-400">&#125;</div>
         </div>
       );
     case 'ai-automation':
       return (
-        <div className="p-3 bg-black/60 rounded-xl border border-white/10 font-mono text-[11px] space-y-2">
+        <div className="p-3 bg-black/60 rounded-xl border border-white/10 fw-regular text-[11px] space-y-2">
           <div className="flex items-center justify-between text-[10px] text-white/50">
-            <span className="flex items-center gap-1 text-[#E50914] font-semibold"><Zap className="w-3 h-3 fill-current" /> AI Pipeline</span>
-            <span className="text-emerald-400 font-semibold">98.4% Accuracy</span>
+            <span className="flex items-center gap-1 text-[#E50914] fw-semibold"><Zap className="w-3 h-3 fill-current" /> AI Pipeline</span>
+            <span className="text-emerald-400 fw-semibold">98.4% Accuracy</span>
           </div>
           <div className="grid grid-cols-3 gap-1.5 text-center text-[9px]">
             <div className="p-1.5 rounded-lg bg-white/5 border border-white/10 text-white/80">Inbound Webhook</div>
-            <div className="p-1.5 rounded-lg bg-[#E50914]/20 border border-[#E50914]/40 text-white font-semibold">Gemini 2.5 RAG</div>
+            <div className="p-1.5 rounded-lg bg-[#E50914]/20 border border-[#E50914]/40 text-white fw-semibold">Gemini 2.5 RAG</div>
             <div className="p-1.5 rounded-lg bg-white/5 border border-white/10 text-white/80">Auto-Dispatch</div>
           </div>
         </div>
       );
     case 'cybersecurity':
       return (
-        <div className="p-3 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between font-mono text-[11px]">
+        <div className="p-3 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between fw-regular text-[11px]">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[#E50914]/15 border border-[#E50914]/40 flex items-center justify-center text-[#E50914]">
               <Lock className="w-4 h-4" />
             </div>
             <div>
-              <div className="text-white font-bold text-[12px]">Zero-Trust Engine</div>
+              <div className="text-white fw-bold text-[12px]">Zero-Trust Engine</div>
               <div className="text-[10px] text-white/50">14,820 Threats Defended</div>
             </div>
           </div>
-          <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold">
+          <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[9px] fw-bold">
             PROTECTED
           </span>
         </div>
       );
     case 'uiux-design':
       return (
-        <div className="p-3 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between font-mono text-[11px]">
+        <div className="p-3 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between fw-regular text-[11px]">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white">
               <Layout className="w-4 h-4" />
             </div>
             <div>
-              <div className="text-white font-bold text-[12px]">Design Tokens v3.0</div>
+              <div className="text-white fw-bold text-[12px]">Design Tokens v3.0</div>
               <div className="text-[10px] text-white/50">Figma • React • Tailwind</div>
             </div>
           </div>
@@ -210,18 +210,18 @@ export const ServicesSection: React.FC = () => {
   });
 
   return (
-    <section className="relative w-full py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-white font-sans">
+    <section className="relative w-full py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-white fw-font">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#E50914] opacity-10 blur-[150px] pointer-events-none rounded-full" />
 
       {/* Header & Filter Controls */}
       <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E50914]/40 bg-[#E50914]/10 text-[11px] font-bold tracking-widest text-[#E50914] uppercase">
+        {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E50914]/40 bg-[#E50914]/10 text-[11px] fw-bold tracking-[0.18em] text-[#E50914] uppercase">
           <Sparkles className="w-3.5 h-3.5" />
           <span>OUR CAPABILITIES</span>
-        </div>
+        </div> */}
 
-        <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+        <h2 className="text-3xl sm:text-5xl fw-semibold text-white tracking-tight">
           Strategic Engineering for Modern Software Teams.
         </h2>
 
@@ -244,7 +244,7 @@ export const ServicesSection: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => setActiveFilter(item.id as FilterCategory)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs fw-semibold transition-all duration-200 ${
                   isActive
                     ? 'bg-[#E50914] text-white shadow-lg shadow-[#E50914]/30 border border-[#E50914]'
                     : 'bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10'
@@ -279,13 +279,13 @@ export const ServicesSection: React.FC = () => {
                   <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white group-hover:border-[#E50914] group-hover:text-[#E50914] transition-colors">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono font-semibold tracking-wider text-white/70 uppercase">
+                  <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] fw-semibold tracking-wider text-white/70 uppercase">
                     {card.categoryLabel}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-rose-100 transition-colors">
+                  <h3 className="text-xl fw-bold text-white group-hover:text-rose-100 transition-colors">
                     {card.title}
                   </h3>
                   <p className="text-xs text-white/70 mt-1 line-clamp-2 leading-relaxed">
@@ -306,7 +306,7 @@ export const ServicesSection: React.FC = () => {
               <div className="mt-5 space-y-3">
                 <CardPreview id={card.id} />
 
-                <div className="pt-2 flex items-center justify-between text-xs font-semibold text-white/80 border-t border-white/10 group-hover:text-white">
+                <div className="pt-2 flex items-center justify-between text-xs fw-semibold text-white/80 border-t border-white/10 group-hover:text-white">
                   <span className="flex items-center gap-1">
                     <span>Architecture Specs</span>
                     <Sparkles className="w-3.5 h-3.5 text-[#E50914]" />
@@ -339,16 +339,16 @@ export const ServicesSection: React.FC = () => {
               </button>
 
               <div className="space-y-2">
-                <span className="px-2.5 py-1 rounded-full bg-[#E50914]/20 border border-[#E50914]/40 text-[#E50914] text-[10px] font-mono font-bold uppercase">
+                <span className="px-2.5 py-1 rounded-full bg-[#E50914]/20 border border-[#E50914]/40 text-[#E50914] text-[10px] fw-bold uppercase">
                   {selectedCard.categoryLabel} SPECIFICATIONS
                 </span>
-                <h3 className="text-2xl font-extrabold">{selectedCard.title}</h3>
+                <h3 className="text-2xl fw-extrabold">{selectedCard.title}</h3>
                 <p className="text-xs text-white/70">{selectedCard.description}</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10 text-xs">
                 <div className="space-y-2">
-                  <h4 className="font-bold text-white/50 uppercase font-mono text-[10px]">Architecture Patterns</h4>
+                  <h4 className="fw-bold text-white/50 uppercase text-[10px]">Architecture Patterns</h4>
                   <ul className="space-y-1">
                     {selectedCard.technicalSpecs.architectures.map((arch, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-white/90">
@@ -360,7 +360,7 @@ export const ServicesSection: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="font-bold text-white/50 uppercase font-mono text-[10px]">Deliverables</h4>
+                  <h4 className="fw-bold text-white/50 uppercase text-[10px]">Deliverables</h4>
                   <ul className="space-y-1">
                     {selectedCard.technicalSpecs.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-white/90">
@@ -372,14 +372,14 @@ export const ServicesSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-2 flex items-center justify-between text-xs font-mono text-white/60 bg-white/5 p-3 rounded-xl border border-white/10">
+              <div className="pt-2 flex items-center justify-between text-xs fw-regular text-white/60 bg-white/5 p-3 rounded-xl border border-white/10">
                 <span>Avg. Timeline: <strong className="text-white">{selectedCard.technicalSpecs.averageTimeline}</strong></span>
                 <span>Stack: <strong className="text-white">{selectedCard.technicalSpecs.technologies.slice(0, 3).join(', ')}</strong></span>
               </div>
 
               <button
                 onClick={() => setSelectedCard(null)}
-                className="w-full py-3 rounded-xl bg-[#E50914] hover:bg-rose-600 font-bold text-xs uppercase tracking-wider transition-colors"
+                className="w-full py-3 rounded-xl bg-[#E50914] hover:bg-rose-600 fw-bold text-xs uppercase tracking-wider transition-colors"
               >
                 Close Architecture Overview
               </button>

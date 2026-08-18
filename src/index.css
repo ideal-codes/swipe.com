@@ -1,23 +1,77 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
   html,
   body {
     font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 300;
+    background: #f7f5f1;
+    color: #111111;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b,
+  button,
+  label {
+    font-weight: 300;
+  }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: "Space Grotesk", var(--font-sans);
+  .fw-font {
+    font-family: var(--font-sans);
   }
+
+  .fw-light {
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  .fw-regular {
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  .fw-medium {
+    font-weight: 300;
+    letter-spacing: -0.012em;
+  }
+
+  .fw-semibold {
+    font-weight: 300;
+    letter-spacing: -0.014em;
+  }
+
+  .fw-bold {
+    font-weight: 300;
+    letter-spacing: -0.016em;
+  }
+
+  .fw-extrabold {
+    font-weight: 300;
+    letter-spacing: -0.018em;
+  }
+
+  .fw-black {
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+
 }

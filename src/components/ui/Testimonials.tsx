@@ -24,11 +24,11 @@ export const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[#A8A8A8] text-xs font-mono">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[#A8A8A8] text-xs fw-medium">
             <Quote className="w-3.5 h-3.5 text-[#E61E4D]" />
             CLIENT VERIFICATION
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+          </div> */}
+          <h2 className="text-3xl sm:text-5xl fw-semibold text-white tracking-tight">
             Trusted by Visionary Leaders.
           </h2>
           <p className="text-[#A8A8A8] text-base leading-relaxed">
@@ -56,15 +56,15 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs font-mono text-[#A8A8A8]">Case Reference:</span>
-                  <span className="text-xs font-mono font-bold text-[#E61E4D] px-3 py-1 rounded-full bg-[#E61E4D]/10 border border-[#E61E4D]/30">
+                  <span className="text-xs fw-regular text-[#A8A8A8]">Case Reference:</span>
+                  <span className="text-xs fw-semibold text-[#E61E4D] px-3 py-1 rounded-full bg-[#E61E4D]/10 border border-[#E61E4D]/30">
                     {item.projectRef}
                   </span>
                 </div>
               </div>
 
               {/* Quote Content */}
-              <blockquote className="text-lg sm:text-2xl font-sans text-neutral-200 leading-relaxed italic">
+              <blockquote className="text-lg sm:text-2xl fw-light text-neutral-200 leading-relaxed italic">
                 "{item.content}"
               </blockquote>
 
@@ -77,11 +77,11 @@ export const Testimonials: React.FC = () => {
                   className="w-14 h-14 rounded-2xl object-cover border border-[#E61E4D]/30"
                 />
                 <div>
-                  <h4 className="text-base font-bold font-display text-white">{item.clientName}</h4>
-                  <p className="text-xs font-mono text-[#E61E4D]">
+                  <h4 className="text-base fw-bold text-white">{item.clientName}</h4>
+                  <p className="text-xs fw-medium text-[#E61E4D]">
                     {item.clientRole}, <span className="text-white">{item.company}</span>
                   </p>
-                  <span className="text-[10px] font-mono text-[#A8A8A8] flex items-center gap-1 mt-0.5">
+                  <span className="text-[10px] fw-regular text-[#A8A8A8] flex items-center gap-1 mt-0.5">
                     <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Verified Engineering Client
                   </span>
                 </div>
