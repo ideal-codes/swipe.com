@@ -1,9 +1,39 @@
 import React from 'react';
+import {
+  SiDjango,
+  SiDocker,
+  SiFirebase,
+  SiFramer,
+  SiFastapi,
+  SiGithub,
+  SiGraphql,
+  SiGsap,
+  SiFlutter,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiRedis,
+  SiScrollreveal,
+  SiSupabase,
+  SiTailwindcss,
+  SiThreedotjs,
+  SiTypescript,
+  SiVercel,
+  SiNextdotjs,
+} from 'react-icons/si';
+
+const CloudMark: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M7.5 18.5h8.5a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 6.5 8.5a4.5 4.5 0 0 0 1 10Z" />
+  </svg>
+);
 
 export interface TechItem {
   name: string;
   color: string;
   tag: string;
+  icon: React.ElementType;
 }
 
 export interface TechStackSectionProps {
@@ -21,33 +51,33 @@ export interface TechStackSectionProps {
 
 // Built-in default tech stack items so the component works standalone
 const DEFAULT_ROW_1: TechItem[] = [
-  { name: 'Next.js', color: '#ffffff', tag: 'Framework' },
-  { name: 'React', color: '#61dafb', tag: 'UI Library' },
-  { name: 'TypeScript', color: '#3178c6', tag: 'Type Safety' },
-  { name: 'TailwindCSS', color: '#38bdf8', tag: 'Styling' },
-  { name: 'Framer Motion', color: '#e100ff', tag: 'Animations' },
-  { name: 'Node.js', color: '#539e43', tag: 'Runtime' },
-  { name: 'Supabase', color: '#3ecf8e', tag: 'Database & Auth' },
-  { name: 'PostgreSQL', color: '#4169e1', tag: 'Relational DB' },
-  { name: 'Docker', color: '#2496ed', tag: 'Containerization' },
-  { name: 'AWS', color: '#ff9900', tag: 'Cloud Infrastructure' },
-  { name: 'Azure', color: '#0078d4', tag: 'Cloud Platform' },
-  { name: 'Vercel', color: '#ffffff', tag: 'Edge Deployment' },
+  { name: 'Next.js', color: '#ffffff', tag: 'Framework', icon: SiNextdotjs },
+  { name: 'React', color: '#61dafb', tag: 'UI Library', icon: SiReact },
+  { name: 'TypeScript', color: '#3178c6', tag: 'Type Safety', icon: SiTypescript },
+  { name: 'TailwindCSS', color: '#38bdf8', tag: 'Styling', icon: SiTailwindcss },
+  { name: 'Framer Motion', color: '#e100ff', tag: 'Animations', icon: SiFramer },
+  { name: 'Node.js', color: '#539e43', tag: 'Runtime', icon: SiNodedotjs },
+  { name: 'Supabase', color: '#3ecf8e', tag: 'Database & Auth', icon: SiSupabase },
+  { name: 'PostgreSQL', color: '#4169e1', tag: 'Relational DB', icon: SiPostgresql },
+  { name: 'Docker', color: '#2496ed', tag: 'Containerization', icon: SiDocker },
+  { name: 'AWS', color: '#ff9900', tag: 'Cloud Infrastructure', icon: CloudMark },
+  { name: 'Azure', color: '#0078d4', tag: 'Cloud Platform', icon: CloudMark },
+  { name: 'Vercel', color: '#ffffff', tag: 'Edge Deployment', icon: SiVercel },
 ];
 
 const DEFAULT_ROW_2: TechItem[] = [
-  { name: 'Python', color: '#3776ab', tag: 'AI & Data' },
-  { name: 'Django', color: '#092e20', tag: 'Backend Framework' },
-  { name: 'FastAPI', color: '#009688', tag: 'High-Speed APIs' },
-  { name: 'Flutter', color: '#02569b', tag: 'Mobile Engine' },
-  { name: 'React Native', color: '#61dafb', tag: 'Cross-Platform' },
-  { name: 'Three.js', color: '#ffffff', tag: '3D WebGL' },
-  { name: 'GSAP', color: '#88ce02', tag: 'Timeline Motion' },
-  { name: 'Lenis', color: '#ff0050', tag: 'Smooth Scroll' },
-  { name: 'GraphQL', color: '#e10098', tag: 'Query API' },
-  { name: 'Redis', color: '#dc382d', tag: 'In-Memory Cache' },
-  { name: 'Firebase', color: '#ffca28', tag: 'Realtime Backend' },
-  { name: 'GitHub', color: '#ffffff', tag: 'DevOps & CI/CD' },
+  { name: 'Python', color: '#3776ab', tag: 'AI & Data', icon: SiPython },
+  { name: 'Django', color: '#092e20', tag: 'Backend Framework', icon: SiDjango },
+  { name: 'FastAPI', color: '#009688', tag: 'High-Speed APIs', icon: SiFastapi },
+  { name: 'Flutter', color: '#02569b', tag: 'Mobile Engine', icon: SiFlutter },
+  { name: 'React Native', color: '#61dafb', tag: 'Cross-Platform', icon: SiReact },
+  { name: 'Three.js', color: '#ffffff', tag: '3D WebGL', icon: SiThreedotjs },
+  { name: 'GSAP', color: '#88ce02', tag: 'Timeline Motion', icon: SiGsap },
+  { name: 'Lenis', color: '#ff0050', tag: 'Smooth Scroll', icon: SiScrollreveal },
+  { name: 'GraphQL', color: '#e10098', tag: 'Query API', icon: SiGraphql },
+  { name: 'Redis', color: '#dc382d', tag: 'In-Memory Cache', icon: SiRedis },
+  { name: 'Firebase', color: '#ffca28', tag: 'Realtime Backend', icon: SiFirebase },
+  { name: 'GitHub', color: '#ffffff', tag: 'DevOps & CI/CD', icon: SiGithub },
 ];
 
 export function TechStackSection({
@@ -94,18 +124,14 @@ export function TechStackSection({
             {marquee1.map((item, idx) => (
               <div
                 key={`m1-${idx}`}
-                className="group relative flex items-center gap-3.5 px-7 py-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#ff0050]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
+                className="group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#ff0050]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
+                title={item.name}
+                aria-label={item.name}
               >
-                <div
-                  className="w-3.5 h-3.5 rounded-full shadow-[0_0_12px_currentColor]"
-                  style={{ backgroundColor: item.color, color: item.color }}
+                <item.icon
+                  className="w-6 h-6 sm:w-7 sm:h-7 transition-colors"
+                  style={{ color: item.color }}
                 />
-                <span className="fw-bold text-base sm:text-lg text-white group-hover:text-[#ff0050] transition-colors">
-                  {item.name}
-                </span>
-                <span className="text-[10px] fw-medium text-slate-400 px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10">
-                  {item.tag}
-                </span>
               </div>
             ))}
           </div>
@@ -121,18 +147,14 @@ export function TechStackSection({
             {marquee2.map((item, idx) => (
               <div
                 key={`m2-${idx}`}
-                className="group relative flex items-center gap-3.5 px-7 py-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#b100ff]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
+                className="group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#b100ff]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
+                title={item.name}
+                aria-label={item.name}
               >
-                <div
-                  className="w-3.5 h-3.5 rounded-full shadow-[0_0_12px_currentColor]"
-                  style={{ backgroundColor: item.color, color: item.color }}
+                <item.icon
+                  className="w-6 h-6 sm:w-7 sm:h-7 transition-colors"
+                  style={{ color: item.color }}
                 />
-                <span className="fw-bold text-base sm:text-lg text-white group-hover:text-[#b100ff] transition-colors">
-                  {item.name}
-                </span>
-                <span className="text-[10px] fw-medium text-slate-400 px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10">
-                  {item.tag}
-                </span>
               </div>
             ))}
           </div>
