@@ -15,36 +15,20 @@ export interface ZoomParallaxProps {
   images?: Image[];
 }
 
-export const DEFAULT_IMAGES: Image[] = [
+const localZoomParallaxImages = import.meta.glob(
+  '../../../assets/zoom-parallax/*.{png,jpg,jpeg,webp,avif,svg}',
   {
-    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Modern architecture building',
+    eager: true,
+    import: 'default',
   },
-  {
-    src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Urban cityscape at sunset',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Abstract geometric pattern',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Mountain landscape',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Minimalist design elements',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Ocean waves and beach',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-    alt: 'Forest trees and sunlight',
-  },
-];
+);
+
+export const DEFAULT_IMAGES: Image[] = Object.entries(localZoomParallaxImages)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([path, src], index) => ({
+    src: src as string,
+    alt: `Zoom parallax image ${index + 1} (${path.split('/').pop()})`,
+  }));
 
 export function ZoomParallax({ images = DEFAULT_IMAGES }: ZoomParallaxProps) {
   const container = useRef(null);
