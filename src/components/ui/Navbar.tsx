@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("vision");
+  const [activeSection, setActiveSection] = useState("hero");
   const [isInitializing, setIsInitializing] = useState(true);
   const [loadKey, setLoadKey] = useState(0);
 
@@ -95,26 +95,31 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, [mobileMenuOpen]);
 
   useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.getElementById(link.href.replace("#", "")))
+      .filter((section): section is HTMLElement => Boolean(section));
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]) {
+          setActiveSection(visible[0].target.id);
+        }
       },
       {
-        threshold: 0.45,
+        threshold: [0.2, 0.35, 0.5, 0.65],
+        rootMargin: "-20% 0px -45% 0px",
       }
     );
 
-    navLinks.forEach((link) => {
-      const section = document.getElementById(
-        link.href.replace("#", "")
-      );
+    sections.forEach((section) => observer.observe(section));
 
-      if (section) observer.observe(section);
-    });
+    if (window.scrollY < 80) {
+      setActiveSection("hero");
+    }
 
     return () => observer.disconnect();
   }, [navLinks]);

@@ -18,38 +18,46 @@ export default function App() {
 
       <Navbar />
 
-      <section id="hero" className="pt-6 sm:pt-10 lg:pt-14">
-        <ZoomParallaxDemo />
-      </section>
-
-      <section id="vision" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-10 sm:pt-14 lg:pt-20">
-        <section className="w-full px-8 xl:px-24">
-            <Interactive3DHero />
+      <main className="flex flex-col gap-12 sm:gap-16 lg:gap-24">
+        <section id="hero" className="pt-6 sm:pt-10 lg:pt-14">
+          <ZoomParallaxDemo />
         </section>
-       </section>
 
-    <section id="services" className="min-h-screen bg-[#030303] text-white selection:bg-[#E50914] selection:text-white">
-      <section>
-        <ServicesSection />
-      </section>
-    </section>
+        <section
+          id="vision"
+          className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-10 sm:pt-14 lg:pt-20"
+        >
+          <section className="w-full px-8 xl:px-24">
+            <Interactive3DHero />
+          </section>
+        </section>
 
+        <section
+          id="services"
+          className="min-h-screen bg-[#030303] text-white selection:bg-[#E50914] selection:text-white"
+        >
+          <section>
+            <ServicesSection />
+          </section>
+        </section>
 
-      <section className="w-full" id="techstacksection">
-        <TechStackSection />
-      </section>
+        <section className="w-full" id="techstacksection">
+          <TechStackSection />
+        </section>
 
+        <section
+          id="TeamShowCase"
+          className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+        >
+          <div className="w-full px-8 xl:px-24">
+            <TeamShowcase />
+          </div>
+        </section>
 
-
-      <section id="TeamShowCase" className="relative w-full min-h-screen  flex items-center justify-center overflow-hidden">
-        <div className="w-full px-8 xl:px-24" >
-          <TeamShowcase />
-        </div>
-      </section>
-
-       <Testimonials />
-       <Contact />
-       <Footer />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </main>
     </div>
   );
 }
