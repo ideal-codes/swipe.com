@@ -57,7 +57,7 @@ export function ZoomParallax({ images = DEFAULT_IMAGES }: ZoomParallaxProps) {
               style={{ scale }}
               className={`absolute top-0 flex h-full w-full items-center justify-center ${index === 1 ? '[&>div]:!-top-[30vh] [&>div]:!left-[5vw] [&>div]:!h-[30vh] [&>div]:!w-[35vw]' : ''} ${index === 2 ? '[&>div]:!-top-[10vh] [&>div]:!-left-[25vw] [&>div]:!h-[45vh] [&>div]:!w-[20vw]' : ''} ${index === 3 ? '[&>div]:!left-[27.5vw] [&>div]:!h-[25vh] [&>div]:!w-[25vw]' : ''} ${index === 4 ? '[&>div]:!top-[27.5vh] [&>div]:!left-[5vw] [&>div]:!h-[25vh] [&>div]:!w-[20vw]' : ''} ${index === 5 ? '[&>div]:!top-[27.5vh] [&>div]:!-left-[22.5vw] [&>div]:!h-[25vh] [&>div]:!w-[30vw]' : ''} ${index === 6 ? '[&>div]:!top-[22.5vh] [&>div]:!left-[25vw] [&>div]:!h-[15vh] [&>div]:!w-[15vw]' : ''} `}
             >
-              <div className="relative h-[25vh] w-[25vw] shadow-2xl overflow-hidden rounded-md border border-white/10">
+              <div className="relative h-[25vh] w-[25vw] shadow-2xl overflow-hidden rounded-md">
                 <img
                   src={src || '/placeholder.svg'}
                   alt={alt || `Parallax image ${index + 1}`}
@@ -100,7 +100,7 @@ export default function DefaultDemo({ images = DEFAULT_IMAGES }: { images?: Imag
   }, []);
 
   return (
-    <main className="min-h-screen w-full bg-[#050505] text-slate-200 selection:bg-red-600 selection:text-white antialiased">
+    <main className="min-h-screen w-full bg-transparent text-slate-200 selection:bg-red-600 selection:text-white antialiased">
       <div className="relative flex h-[50vh] flex-col items-center justify-center px-4 text-center">
         {/* Immersive Glow Spotlight */}
         <div
