@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
-import { TESTIMONIALS } from '../../data/testimonialsdata';
+import { Quote, ChevronLeft, ChevronRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { LIFE_AT_SWIPE } from '../../data/testimonialsdata';
 import { soundFx } from '../../lib/sound';
 
 export const Testimonials: React.FC = () => {
@@ -9,12 +9,12 @@ export const Testimonials: React.FC = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      setCurrentIndex((prev) => (prev + 1) % LIFE_AT_SWIPE.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
 
-  const item = TESTIMONIALS[currentIndex];
+  const item = LIFE_AT_SWIPE[currentIndex];
 
   return (
     <section id="testimonials" className="py-24 relative overflow-hidden border-t border-white/5">
@@ -25,18 +25,18 @@ export const Testimonials: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[#A8A8A8] text-xs fw-medium">
-            <Quote className="w-3.5 h-3.5 text-[#E61E4D]" />
-            CLIENT VERIFICATION
+            <Sparkles className="w-3.5 h-3.5 text-[#E61E4D]" />
+            LIFE @ SWIPE
           </div> */}
           <h2 className="text-3xl sm:text-5xl fw-semibold text-white tracking-tight">
-            Trusted by Visionary Leaders.
+            Life @ Swipe
           </h2>
           <p className="text-[#A8A8A8] text-base leading-relaxed">
-            Read how global engineering leaders partner with SWIPE to transform mission-critical software systems.
+            Hear it from the people who started it. SWIPE is a student-built startup, and this is what it feels like from the inside.
           </p>
         </div>
 
-        {/* Testimonial Showcase Card */}
+        {/* Life at Swipe Showcase Card */}
         <div className="max-w-4xl mx-auto relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -47,17 +47,18 @@ export const Testimonials: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="p-8 sm:p-12 rounded-3xl border border-white/10 space-y-8 relative overflow-hidden"
             >
-              {/* Star Rating & Company Logo Badge */}
+              {/* Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
-                <div className="flex items-center space-x-1">
-                  {Array.from({ length: item.rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#E61E4D] text-[#E61E4D]" />
-                  ))}
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs fw-regular text-[#A8A8A8]">Perspective:</span>
+                  <span className="text-xs fw-semibold text-[#E61E4D] px-3 py-1 rounded-full bg-[#E61E4D]/10 border border-[#E61E4D]/30">
+                    Student Startup Story
+                  </span>
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-xs fw-regular text-[#A8A8A8]">Case Reference:</span>
-                  <span className="text-xs fw-semibold text-[#E61E4D] px-3 py-1 rounded-full bg-[#E61E4D]/10 border border-[#E61E4D]/30">
+                  <Quote className="w-4 h-4 text-[#E61E4D]" />
+                  <span className="text-xs fw-medium text-white/70 uppercase tracking-[0.2em]">
                     {item.projectRef}
                   </span>
                 </div>
@@ -73,16 +74,15 @@ export const Testimonials: React.FC = () => {
                 <img
                   src={item.avatarUrl}
                   alt={item.clientName}
-                  referrerPolicy="no-referrer"
-                  className="w-14 h-14 rounded-2xl object-cover border border-[#E61E4D]/30"
+                  className="w-16 h-16 rounded-2xl object-cover border border-[#E61E4D]/30"
                 />
                 <div>
                   <h4 className="text-base fw-bold text-white">{item.clientName}</h4>
                   <p className="text-xs fw-medium text-[#E61E4D]">
-                    {item.clientRole}, <span className="text-white">{item.company}</span>
+                    {item.clientRole} <span className="text-white">- {item.company}</span>
                   </p>
                   <span className="text-[10px] fw-regular text-[#A8A8A8] flex items-center gap-1 mt-0.5">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Verified Engineering Client
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Built from the student startup floor
                   </span>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export const Testimonials: React.FC = () => {
             <button
               onClick={() => {
                 soundFx.playClick();
-                setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+                setCurrentIndex((prev) => (prev - 1 + LIFE_AT_SWIPE.length) % LIFE_AT_SWIPE.length);
               }}
               className="p-3 rounded-full border border-white/10 text-white hover:border-[#E61E4D] transition-colors"
             >
@@ -103,7 +103,7 @@ export const Testimonials: React.FC = () => {
 
             {/* Indicator Dots */}
             <div className="flex space-x-2">
-              {TESTIMONIALS.map((_, idx) => (
+              {LIFE_AT_SWIPE.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => {
@@ -120,7 +120,7 @@ export const Testimonials: React.FC = () => {
             <button
               onClick={() => {
                 soundFx.playClick();
-                setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+                setCurrentIndex((prev) => (prev + 1) % LIFE_AT_SWIPE.length);
               }}
               className="p-3 rounded-full border border-white/10 text-white hover:border-[#E61E4D] transition-colors"
             >

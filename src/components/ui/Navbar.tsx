@@ -41,7 +41,7 @@ const DEFAULT_LINKS: NavLink[] = [
     href: "#TeamShowCase",
   },
   {
-    name: "Testimonials",
+    name: "Stories",
     href: "#testimonials",
   },
   {

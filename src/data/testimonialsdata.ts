@@ -1,40 +1,48 @@
 import { TestimonialItem, LocationItem } from '../types';
+import arjunAvatar from '../../assets/life/arjun.jpg';
+import naveedAvatar from '../../assets/life/naveed.jpg';
+import athuldevAvatar from '../../assets/life/athuldev.jpg';
 
-export const TESTIMONIALS: TestimonialItem[] = [
+export const LIFE_AT_SWIPE: TestimonialItem[] = [
   {
-    id: 'test-1',
-    clientName: 'Elena Rostova',
-    clientRole: 'VP of Product Engineering',
-    company: 'FinPulse Global',
-    companyLogoText: 'FINPULSE',
-    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300',
-    content: 'SWIPE re-architected our core high-frequency trading platform with remarkable sub-millisecond execution rates. Their senior architectural clarity and zero-downtime deployment strategy set a new standard for our internal dev team.',
+    id: 'life-1',
+    clientName: 'Arjun',
+    clientRole: 'Founder',
+    company: 'SWIPE',
+    companyLogoText: 'SWIPE',
+    avatarUrl: arjunAvatar,
+    content:
+      'We started SWIPE as students with a simple belief: if we could build with real discipline, we could ship work that feels bigger than our age. That energy is still the core of everything here.',
     rating: 5,
-    projectRef: 'FP-CORE-ARCH'
+    projectRef: 'LIFE-FOUNDER',
   },
   {
-    id: 'test-2',
-    clientName: 'Marcus Vance',
-    clientRole: 'Chief Technology Officer',
-    company: 'NeuraHealth AI',
-    companyLogoText: 'NEURAHEALTH',
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300',
-    content: 'Partnering with SWIPE allowed us to launch our HIPAA-compliant neural diagnostics platform 4 months ahead of schedule. The team operates as a true extension of our engineering leadership.',
+    id: 'life-2',
+    clientName: 'Naveed',
+    clientRole: 'Co-Founder',
+    company: 'SWIPE',
+    companyLogoText: 'SWIPE',
+    avatarUrl: naveedAvatar,
+    content:
+      'Life at SWIPE is fast, scrappy, and very real. It feels like a student startup in the best way possible: late nights, quick decisions, tight teamwork, and a lot of learning while we build.',
     rating: 5,
-    projectRef: 'NH-NEURAL-V2'
+    projectRef: 'LIFE-COFOUNDER',
   },
   {
-    id: 'test-3',
-    clientName: 'David K. Sterling',
-    clientRole: 'Head of Infrastructure',
-    company: 'OmniCloud Systems',
-    companyLogoText: 'OMNICLOUD',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300',
-    content: 'Their multi-region Kubernetes mesh and zero-trust security audit eliminated critical latency bottlenecks across 12 data centers. SWIPE delivers world-class software engineering without compromise.',
+    id: 'life-3',
+    clientName: 'Athuldev',
+    clientRole: 'CEO',
+    company: 'SWIPE',
+    companyLogoText: 'SWIPE',
+    avatarUrl: athuldevAvatar,
+    content:
+      'What makes SWIPE special is the mindset. We are students, but we think like a team that wants to create serious products. Every project feels like a chance to prove that young builders can do exceptional work.',
     rating: 5,
-    projectRef: 'OC-K8S-MESH'
-  }
+    projectRef: 'LIFE-CEO',
+  },
 ];
+
+export const TESTIMONIALS = LIFE_AT_SWIPE;
 
 export const LOCATIONS: LocationItem[] = [
   {

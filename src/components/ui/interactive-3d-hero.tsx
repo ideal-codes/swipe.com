@@ -160,9 +160,9 @@ export function Interactive3DHero({
   spotlightSize = 240,
   spotlightFill = "rgba(239, 68, 68, 0.55)",
   title1 = "Vision",
-  desc1 = "Pioneering spatial 3D interfaces that transform static visual experiences into fluid, human-centric digital interactions.",
+  desc1 = "To build a student-driven innovation ecosystem that transforms ideas into impactful products, ventures, and solutions for the future.",
   title2 = "Mission",
-  desc2 = "Empowering creators to build real-time interactive 3D web environments with uncompromised performance and aesthetic clarity."
+  desc2 = "To empower students to identify real-world problems, develop innovative solutions, build technology-driven products, and gain hands-on experience in entrepreneurship, leadership, design, technology, and business."
 }: Interactive3DHeroProps) {
   return (
 
@@ -172,11 +172,11 @@ export function Interactive3DHero({
           <Sparkles className="w-3.5 h-3.5" />
           VISION & MISSION
         </div> */}
-        <h2 className="text-3xl sm:text-5xl fw-semibold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl fw-semibold text-white tracking-tight whitespace-nowrap">
           Designing Intelligent Experiences That Scale.
         </h2>
-        <p className="text-[#A8A8A8] text-base leading-relaxed">
-          We combine spatial interfaces, product clarity, and premium engineering to shape digital systems that feel exceptional.
+        <p className="text-[#A8A8A8] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Swipe is a student startup built around speed, craft, and teamwork. We make products that feel intentional, clean, and ready for real-world use.
         </p>
       </div>
 
@@ -193,7 +193,7 @@ export function Interactive3DHero({
               <div className="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-white">
                 <Eye className="w-5 h-5 text-red-300" />
               </div>
-              <h2 className="text-xl sm:text-2xl fw-bold tracking-tight text-white">
+              <h2 className="text-lg sm:text-xl lg:text-2xl fw-bold tracking-tight text-white">
                 {title1}
               </h2>
             </div>
@@ -209,7 +209,7 @@ export function Interactive3DHero({
  border border-red-500/20 text-white">
                 <Sparkles className="w-5 h-5 text-zinc-100" />
               </div>
-              <h2 className="text-xl sm:text-2xl fw-bold tracking-tight text-white">
+              <h2 className="text-lg sm:text-xl lg:text-2xl fw-bold tracking-tight text-white">
                 {title2}
               </h2>
             </div>
