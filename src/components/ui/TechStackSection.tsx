@@ -120,16 +120,16 @@ export function TechStackSection({
           <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[#050508] to-transparent z-20 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[#050508] to-transparent z-20 pointer-events-none" />
 
-          <div className="flex w-max tech-animate-right space-x-5">
+          <div className="flex w-max tech-animate-right space-x-8 sm:space-x-12">
             {marquee1.map((item, idx) => (
               <div
                 key={`m1-${idx}`}
-                className="group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#ff0050]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
+                className="group relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#ff0050]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
                 title={item.name}
                 aria-label={item.name}
               >
                 <item.icon
-                  className="w-6 h-6 sm:w-7 sm:h-7 transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 transition-colors"
                   style={{ color: item.color }}
                 />
               </div>
@@ -143,16 +143,16 @@ export function TechStackSection({
           <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[#050508] to-transparent z-20 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[#050508] to-transparent z-20 pointer-events-none" />
 
-          <div className="flex w-max tech-animate-left space-x-5">
+          <div className="flex w-max tech-animate-left space-x-8 sm:space-x-12">
             {marquee2.map((item, idx) => (
               <div
                 key={`m2-${idx}`}
-                className="group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#b100ff]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
+                className="group relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 hover:border-[#b100ff]/60 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105"
                 title={item.name}
                 aria-label={item.name}
               >
                 <item.icon
-                  className="w-6 h-6 sm:w-7 sm:h-7 transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 transition-colors"
                   style={{ color: item.color }}
                 />
               </div>
