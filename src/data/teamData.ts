@@ -1,10 +1,19 @@
 import { TeamMember } from "@/types";
+import adarshts from "../../assets/team/adarshts.png";
+import arjun from "../../assets/team/arjun.jpg";
+import naveed from "../../assets/team/naveed.jpg";
+import athuldev from "../../assets/team/athuldev.jpg";
+import prajwin from "../../assets/team/prajwin.jpg";
+import ananthakrishnan from "../../assets/team/ananthakrishnan.jpg";
+import rahna from "../../assets/team/rahna.jpg";
+import devadath from "../../assets/team/devadath.jpg";
+
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: "elena-vance",
-    name: "Elena Vance",
-    role: "Chief Executive Officer & Co-Founder",
+    id: "arjun",
+    name: "Arjun",
+    role: "Founder",
     department: "Leadership",
     location: "San Francisco, CA",
     experience: "12+ Yrs Experience",
@@ -14,12 +23,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     github: "https://github.com",
     skills: ["Strategic Leadership", "Product Vision", "AI Strategy", "Venture Growth"],
     keyAchievement: "Scaled platform to 5M+ active users in under 24 months.",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop&q=80",
+    avatar: arjun,
   },
   {
-    id: "marcus-sterling",
-    name: "Marcus Sterling",
-    role: "Chief Technology Officer & AI Principal",
+    id: "naveed",
+    name: "Mohammed Naveed",
+    role: "Co-Founder",
     department: "Engineering",
     location: "Seattle, WA",
     experience: "10+ Yrs Experience",
@@ -29,12 +38,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     github: "https://github.com",
     skills: ["Distributed Systems", "WebGL / Three.js", "Neural Nets", "Rust & C++"],
     keyAchievement: "Authored 6 patents in real-time GPU hardware acceleration.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&q=80",
+    avatar: naveed,
   },
   {
-    id: "sophia-chen",
-    name: "Sophia Chen",
-    role: "Chief Design Officer",
+    id: "athuldev-menon",
+    name: "Athuldev Menon",
+    role: "Chief Executive Officer",
     department: "Design",
     location: "New York, NY",
     experience: "9 Yrs Experience",
@@ -43,12 +52,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://linkedin.com",
     skills: ["UI/UX Engineering", "Motion & Physics", "Design Systems", "Figma Expert"],
     keyAchievement: "Winner of Apple Design Award & Red Dot Best of Best 2024.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=800&fit=crop&q=80",
+    avatar: athuldev,
   },
   {
-    id: "liam-oconnor",
-    name: "Liam O'Connor",
-    role: "Lead AI Research Engineer",
+    id: "adarsh-ts",
+    name: "Adarsh T S",
+    role: "Chief Technology Officer",
     department: "Research",
     location: "Boston, MA",
     experience: "7 Yrs Experience",
@@ -58,12 +67,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     github: "https://github.com",
     skills: ["PyTorch / JAX", "Multimodal LLMs", "CUDA Optimization", "Python"],
     keyAchievement: "Published 14 top-tier NeurIPS & ICML research papers.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop&q=80",
+    avatar: adarshts,
   },
   {
-    id: "aria-takahashi",
-    name: "Aria Takahashi",
-    role: "Head of Product Experience",
+    id: "ananthakrishnan-pp",
+    name: "Ananthakrishnan P P",
+    role: "COO",
     department: "Product",
     location: "Tokyo / SF",
     experience: "8 Yrs Experience",
@@ -72,12 +81,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://linkedin.com",
     skills: ["Product Strategy", "User Research", "Agile Roadmap", "Data Analytics"],
     keyAchievement: "Boosted user activation and 30-day retention by 42%.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=800&fit=crop&q=80",
+    avatar: ananthakrishnan,
   },
   {
-    id: "david-kim",
-    name: "David Kim",
-    role: "Principal Frontend Engineer",
+    id: "prajwin-k-j",
+    name: "Prajwin K J",
+    role: "CDO",
     department: "Engineering",
     location: "Austin, TX",
     experience: "8 Yrs Experience",
@@ -87,10 +96,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
     github: "https://github.com",
     skills: ["React / Next.js", "TypeScript", "Tailwind CSS", "Web Workers"],
     keyAchievement: "Reduced app bundle size by 65% while doubling render speeds.",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop&q=80",
+    avatar: prajwin,
   },
   {
-    id: "zara-sterling",
+    id: "rahna",
     name: "Zara Sterling",
     role: "VP of Brand & Developer Relations",
     department: "Leadership",
@@ -101,12 +110,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: "https://linkedin.com",
     skills: ["Brand Strategy", "Developer Relations", "Content Ecosystems", "PR"],
     keyAchievement: "Built a vibrant developer community with 150K+ active builders.",
-    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=800&h=800&fit=crop&q=80",
+    avatar: rahna,
   },
   {
-    id: "julian-vance",
-    name: "Julian Vance",
-    role: "Senior DevOps & Cloud Architect",
+    id: "devadath",
+    name: "Devadath",
+    role: "CPO",
     department: "Engineering",
     location: "Berlin, Germany",
     experience: "11 Yrs Experience",
@@ -116,6 +125,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     github: "https://github.com",
     skills: ["Kubernetes", "Terraform", "AWS / GCP", "CI/CD Pipelines"],
     keyAchievement: "Zero downtime during 10x traffic spikes during product launches.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=800&fit=crop&q=80",
+    avatar: devadath,
   },
 ];
