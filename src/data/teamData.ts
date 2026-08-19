@@ -100,8 +100,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "rahna",
-    name: "Zara Sterling",
-    role: "VP of Brand & Developer Relations",
+    name: "Rahna M M",
+    role: "CMO",
     department: "Leadership",
     location: "London, UK",
     experience: "9 Yrs Experience",

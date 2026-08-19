@@ -422,7 +422,7 @@ export function TeamShowcase() {
       src: member.avatar,
       alt: member.name,
       title: member.name,
-      subtitle: `${member.role} • ${member.department}`,
+      subtitle: `${member.role} `,
       // meta: [
       //   { label: "Location", value: member.location },
       //   { label: "Experience", value: member.experience },
